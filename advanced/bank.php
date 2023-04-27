@@ -28,5 +28,6 @@ $contaCorrentes['123.456.789-11'] = depositarSaldo(
 );
 
 foreach ($contaCorrentes as $cpf => $conta) {
-    exibeMensagem("$cpf - {$conta['titular']} : {$conta['saldo']}");
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    exibeMensagem("$cpf - $titular : $saldo");
 }
