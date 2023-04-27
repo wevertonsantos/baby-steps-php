@@ -27,7 +27,27 @@ $contaCorrentes['123.456.789-11'] = depositarSaldo(
     10
 );
 
-foreach ($contaCorrentes as $cpf => $conta) {
-    ['titular' => $titular, 'saldo' => $saldo] = $conta;
-    exibeMensagem("$cpf - $titular : $saldo");
-}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php foreach($contaCorrentes as $cpf => $conta)
+    { 
+        ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    ?>
+        <dl>
+            <dt><h3>Conta correntes</h3></dt>
+            <dd><?= "$titular - $cpf" ?></dd>
+            <dd><?= "Saldo : $saldo" ?></dd>
+        </dl>
+    <?php 
+    } ?>
+</body>
+</html>
