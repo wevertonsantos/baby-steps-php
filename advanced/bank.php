@@ -3,7 +3,7 @@ function exibeMensagem($mensagem){
     echo $mensagem . PHP_EOL;
 }
 
-function sacarSaldo($conta, $valorASacar){
+function sacarSaldo( array $conta, float $valorASacar) : array{
     if($valorASacar > $conta['saldo']){
         exibeMensagem("Você não pode sacar");
     }
@@ -13,7 +13,7 @@ function sacarSaldo($conta, $valorASacar){
     return $conta;
 }
 
-function depositarSaldo($conta, $valorADepositar){
+function depositarSaldo(array $conta, float $valorADepositar) : array {
     if($valorADepositar > 0){
         $conta['saldo'] += $valorADepositar;
     }
@@ -49,5 +49,5 @@ $contaCorrentes['123.456.789-11'] = depositarSaldo(
 );
 
 foreach ($contaCorrentes as $cpf => $conta) {
-    exibeMensagem("$cpf - $conta[titular] : $conta[saldo]");
+    exibeMensagem("$cpf - {$conta['titular']} : {$conta['saldo']}");
 }
