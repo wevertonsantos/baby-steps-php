@@ -38,16 +38,17 @@ $contaCorrentes['123.456.789-11'] = depositarSaldo(
     <title>Document</title>
 </head>
 <body>
-    <?php foreach($contaCorrentes as $cpf => $conta)
-    { 
-        ['titular' => $titular, 'saldo' => $saldo] = $conta;
-    ?>
-        <dl>
-            <dt><h3>Conta correntes</h3></dt>
-            <dd><?= "$titular - $cpf" ?></dd>
-            <dd><?= "Saldo : $saldo" ?></dd>
-        </dl>
-    <?php 
-    } ?>
+    <h1>Conta correntes</h1>
+
+    <dl>
+        <?php foreach($contaCorrentes as $cpf => $conta)
+        { 
+            ['titular' => $titular, 'saldo' => $saldo] = $conta;
+        ?>
+                <dt><h3><?= "$titular - $cpf" ?></h3></dd>
+                <dd><?= "Saldo : $saldo" ?></dd>
+        <?php 
+        } ?>
+    </dl>
 </body>
 </html>
